@@ -13,7 +13,7 @@ export default function About() {
             <div className="max-w-4xl mx-auto text-center mb-16">
               <h1 className="font-serif text-5xl md:text-7xl tracking-tighter mb-8">About Us</h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Empowering businesses with transformative technology solutions through integrity, innovation, and senior execution.
+                Empowering businesses with transformative technology solutions through integrity and innovation.
               </p>
             </div>
 
@@ -34,8 +34,8 @@ export default function About() {
                     <p className="text-sm text-muted-foreground font-bold uppercase tracking-widest">Woman Owned</p>
                   </Card>
                   <Card className="p-6 fd-glass text-center">
-                    <h3 className="text-3xl font-serif text-primary mb-2">Senior</h3>
-                    <p className="text-sm text-muted-foreground font-bold uppercase tracking-widest">Execution Only</p>
+                    <h3 className="text-3xl font-serif text-primary mb-2">Industry</h3>
+                    <p className="text-sm text-muted-foreground font-bold uppercase tracking-widest">Certified Consultants</p>
                   </Card>
                 </div>
               </div>
