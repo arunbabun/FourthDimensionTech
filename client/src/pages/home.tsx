@@ -295,15 +295,15 @@ export default function Home() {
                       </div>
                     </a>
 
-                    <div className="flex items-center gap-6">
-                      <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center">
+                    <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY.address)}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group">
+                      <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
                         <MapPin className="h-6 w-6" />
                       </div>
                       <div>
                         <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">Visit Us</p>
                         <p className="text-xl font-medium">{COMPANY.address}</p>
                       </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
                 
