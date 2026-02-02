@@ -55,7 +55,7 @@ export default function Home() {
                       <img 
                         src={heroBannerBg} 
                         alt="" 
-                        className="w-full h-full object-cover" 
+                        className="w-full h-full object-cover opacity-60" 
                       />
                     </div>
                     
