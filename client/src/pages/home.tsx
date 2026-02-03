@@ -27,6 +27,7 @@ import mlIcon from "@/assets/images/ml-icon.png";
 import transformIcon from "@/assets/images/transform-icon.png";
 import brainCloudMerged from "@/assets/images/brain-cloud-merged.png";
 import heroBannerBg from "@/assets/images/hero-banner-bg.jpg";
+import techIconsBg from "@/assets/images/tech-icons-bg.png";
 import fdIcon from "@/assets/images/fd-icon.png";
 
 function Pill({ children }: { children: React.ReactNode }) {
@@ -41,15 +42,44 @@ function Pill({ children }: { children: React.ReactNode }) {
 export default function Home() {
   return (
     <div className="min-h-screen bg-background relative" id="top">
-      {/* Hero background image - only visible on large screens */}
-      <div className="absolute top-0 left-0 right-0 h-[55vh] overflow-hidden hidden lg:block">
+      {/* Hero background - sized to match hero content only */}
+      <div className="absolute top-0 left-0 right-0 h-[280px] sm:h-[320px] md:h-[380px] overflow-hidden">
+        {/* Static background */}
         <img 
           src={heroBannerBg} 
           alt="" 
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-white/40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+        {/* Animated floating orbs for dynamic effect */}
+        <motion.div 
+          className="absolute top-8 left-4 sm:left-10 w-20 h-20 sm:w-32 sm:h-32 md:w-48 md:h-48 rounded-full bg-primary/15 blur-2xl sm:blur-3xl"
+          animate={{ 
+            x: [0, 20, 0],
+            y: [0, -15, 0],
+            scale: [1, 1.15, 1]
+          }}
+          transition={{ 
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div 
+          className="absolute top-12 right-4 sm:right-10 w-16 h-16 sm:w-28 sm:h-28 md:w-40 md:h-40 rounded-full bg-blue-400/15 blur-2xl sm:blur-3xl"
+          animate={{ 
+            x: [0, -15, 0],
+            y: [0, 10, 0],
+            scale: [1, 1.1, 1]
+          }}
+          transition={{ 
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1
+          }}
+        />
+        <div className="absolute inset-0 bg-white/50 sm:bg-white/40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/20 to-background" />
       </div>
       
       <div className="relative z-10">
@@ -57,7 +87,7 @@ export default function Home() {
 
       <main>
         <section className="relative" aria-label="Hero">
-          <div className="fd-container relative py-8 sm:py-12 md:py-16 px-4 sm:px-6 lg:min-h-[35vh] flex items-center justify-center">
+          <div className="fd-container relative py-6 sm:py-8 md:py-12 px-4 sm:px-6 lg:min-h-[30vh] flex items-center justify-center">
             <div className="max-w-4xl mx-auto text-center">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -71,7 +101,7 @@ export default function Home() {
                   {COMPANY.tagline}
                 </h1>
                 
-                <div className="flex flex-wrap justify-center gap-x-2 gap-y-1 text-sm sm:text-base md:text-lg text-slate-600 max-w-3xl mx-auto mb-6 sm:mb-8">
+                <div className="flex flex-wrap justify-center gap-x-2 gap-y-1 text-sm sm:text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
                   <span>AI & ML Solutions</span>
                   <span className="hidden sm:inline">•</span>
                   <span>Data Engineering</span>
@@ -82,28 +112,15 @@ export default function Home() {
                   <span className="hidden sm:inline">•</span>
                   <span>Quality Engineering</span>
                 </div>
-                
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-                  <Link href="/contact">
-                    <Button size="lg" className="w-full sm:w-auto rounded-full px-6 sm:px-8 bg-primary hover:bg-primary/90 text-white">
-                      Get Started
-                    </Button>
-                  </Link>
-                  <Link href="/about">
-                    <Button size="lg" variant="outline" className="w-full sm:w-auto rounded-full px-6 sm:px-8 border-slate-300 text-slate-700 hover:bg-slate-100">
-                      Learn More
-                    </Button>
-                  </Link>
-                </div>
               </motion.div>
             </div>
           </div>
         </section>
 
-        <section className="py-6 md:py-8" aria-label="Capabilities">
+        <section className="py-4 md:py-6" aria-label="Capabilities">
           <div className="fd-container px-4 md:px-6">
             <div className="max-w-3xl mb-6 md:mb-10 text-center md:text-left mx-auto md:mx-0">
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl tracking-tight mb-2 md:mb-3">What we do best</h2>
+              <h2 className="font-serif text-xl sm:text-2xl md:text-3xl tracking-tight mb-2 md:mb-3">What we do best</h2>
               <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
                 We deliver measurable outcomes across our core technology pillars.
               </p>
@@ -179,7 +196,7 @@ export default function Home() {
         <section className="py-6 md:py-10" aria-label="Industries">
           <div className="fd-container px-4 md:px-6">
             <div className="max-w-3xl mb-6 md:mb-10 text-center md:text-left mx-auto md:mx-0">
-              <h2 className="font-serif text-2xl sm:text-3xl md:text-5xl tracking-tight mb-2 md:mb-3">Industries we serve</h2>
+              <h2 className="font-serif text-xl sm:text-2xl md:text-3xl tracking-tight mb-2 md:mb-3">Industries we serve</h2>
               <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
                 Deep domain expertise for regulated and scale-intensive sectors.
               </p>

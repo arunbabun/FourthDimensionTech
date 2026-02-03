@@ -30,7 +30,7 @@ export default function CloudEngineering() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="py-20">
+      <main className="pt-2 md:pt-4 pb-20">
         <div className="fd-container">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

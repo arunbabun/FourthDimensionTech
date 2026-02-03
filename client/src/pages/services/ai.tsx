@@ -39,7 +39,7 @@ export default function AISolutions() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-24">
+      <main className="pt-2 md:pt-4">
         {/* Hero Section */}
         <section className="py-12 md:py-20 bg-muted/30 overflow-hidden relative">
           <div className="fd-container relative z-10">
