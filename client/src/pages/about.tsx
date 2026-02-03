@@ -54,44 +54,44 @@ export default function About() {
           </div>
         </section>
 
-        <section id="contact" className="py-24">
-          <div className="fd-container">
-            <Card className="relative overflow-hidden rounded-[4rem] border-border/40 fd-glass fd-noise p-12 md:p-20">
-              <div className="relative z-10 grid gap-16 lg:grid-cols-2">
-                <div>
-                  <h2 className="font-serif text-5xl md:text-7xl tracking-tighter mb-8">Let's talk.</h2>
-                  <p className="text-xl text-muted-foreground leading-relaxed mb-12 max-w-md">
+        <section id="contact" className="py-12 md:py-24">
+          <div className="fd-container px-4 md:px-6">
+            <Card className="relative overflow-hidden rounded-2xl md:rounded-[4rem] border-border/40 fd-glass fd-noise p-6 sm:p-8 md:p-12 lg:p-20">
+              <div className="relative z-10 grid gap-8 md:gap-16 lg:grid-cols-2">
+                <div className="text-center lg:text-left">
+                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-7xl tracking-tighter mb-4 md:mb-8">Let's talk.</h2>
+                  <p className="text-base md:text-xl text-muted-foreground leading-relaxed mb-8 md:mb-12 max-w-md mx-auto lg:mx-0">
                     Ready to start your digital transformation journey? Our team is standing by to help you navigate the future.
                   </p>
                   
-                  <div className="space-y-8">
-                    <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-6 group">
-                      <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                        <Mail className="h-6 w-6" />
+                  <div className="space-y-4 md:space-y-8 flex flex-col items-center lg:items-start">
+                    <a href={`mailto:${COMPANY.email}`} className="flex items-center gap-3 md:gap-6 group w-full max-w-xs lg:max-w-none">
+                      <div className="h-10 w-10 md:h-14 md:w-14 flex-shrink-0 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <Mail className="h-5 w-5 md:h-6 md:w-6" />
                       </div>
-                      <div>
-                        <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">Email Us</p>
-                        <p className="text-xl font-medium">{COMPANY.email}</p>
+                      <div className="text-left min-w-0">
+                        <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">Email Us</p>
+                        <p className="text-sm md:text-xl font-medium break-all">{COMPANY.email}</p>
                       </div>
                     </a>
                     
-                    <a href={`tel:${COMPANY.phone.replace(/\s+/g, "")}`} className="flex items-center gap-6 group">
-                      <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                        <Phone className="h-6 w-6" />
+                    <a href={`tel:${COMPANY.phone.replace(/\s+/g, "")}`} className="flex items-center gap-3 md:gap-6 group w-full max-w-xs lg:max-w-none">
+                      <div className="h-10 w-10 md:h-14 md:w-14 flex-shrink-0 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <Phone className="h-5 w-5 md:h-6 md:w-6" />
                       </div>
-                      <div>
-                        <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">Call Us</p>
-                        <p className="text-xl font-medium">{COMPANY.phone}</p>
+                      <div className="text-left min-w-0">
+                        <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">Call Us</p>
+                        <p className="text-sm md:text-xl font-medium">{COMPANY.phone}</p>
                       </div>
                     </a>
 
-                    <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY.address)}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group">
-                      <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                        <MapPin className="h-6 w-6" />
+                    <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(COMPANY.address)}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 md:gap-6 group w-full max-w-xs lg:max-w-none">
+                      <div className="h-10 w-10 md:h-14 md:w-14 flex-shrink-0 rounded-xl md:rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                        <MapPin className="h-5 w-5 md:h-6 md:w-6" />
                       </div>
-                      <div>
-                        <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">Visit Us</p>
-                        <p className="text-xl font-medium">{COMPANY.address}</p>
+                      <div className="text-left min-w-0">
+                        <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">Visit Us</p>
+                        <p className="text-sm md:text-xl font-medium">{COMPANY.address}</p>
                       </div>
                     </a>
                   </div>
@@ -99,7 +99,7 @@ export default function About() {
 
                 <div className="lg:pl-12 flex flex-col justify-center">
                   <div className="p-8 rounded-[3rem] bg-white/5 border border-white/10 backdrop-blur-sm shadow-inner">
-                    <p className="text-2xl font-serif italic text-foreground mb-6">
+                    <p className="text-xl md:text-2xl text-foreground mb-6 leading-relaxed" style={{ fontFamily: 'Georgia, "Times New Roman", serif', fontWeight: 400 }}>
                       "Excellence is not an act, but a habit. We've made it our habit to deliver transformative technology that works."
                     </p>
                     <div className="flex items-center gap-4">
