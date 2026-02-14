@@ -82,34 +82,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-12 md:py-16 bg-slate-900" aria-label="Quick Services">
-          <div className="fd-container px-4 md:px-6">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
-              {[
-                { num: "01", title: "AI & ML Solutions", desc: "Generative AI and custom machine learning for intelligent automation.", icon: Sparkles, href: "/services/ai" },
-                { num: "02", title: "Cloud Services", desc: "Strategy, migration, and cloud-native development for scale.", icon: Cloud, href: "/services/cloud" },
-                { num: "03", title: "Data Engineering", desc: "Modern data platforms and intelligent pipelines.", icon: Database, href: "/services/data" },
-              ].map((item, i) => (
-                <motion.div
-                  key={item.num}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                >
-                  <Link href={item.href}>
-                    <div className="group p-6 md:p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/40 hover:bg-white/10 transition-all duration-300 cursor-pointer h-full" data-testid={`card-quick-${item.num}`}>
-                      <span className="text-4xl md:text-5xl font-bold text-primary/40 group-hover:text-primary/70 transition-colors">{item.num}</span>
-                      <h3 className="text-lg md:text-xl font-bold text-white mt-4 mb-3 group-hover:text-primary transition-colors">{item.title}</h3>
-                      <p className="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="py-14 md:py-20" aria-label="Services">
           <div className="fd-container px-4 md:px-6">
             <div className="text-center mb-10 md:mb-14">
