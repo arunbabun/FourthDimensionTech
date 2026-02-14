@@ -3,11 +3,11 @@ import { Cpu, BadgeCheck, ShieldCheck, Rocket, Users, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Navbar, Footer, COMPANY } from "@/components/layout/Navbar";
+import productHeroImage from "@/assets/images/service-product.jpg";
 
 const SERVICE = {
   title: "Product Engineering",
   description: "We take your ideas and vision and transform them into state-of-the-art products—ready to use, market, and monetize.",
-  image: "https://snaptureframez.in/wp-content/uploads/2025/02/illustration-young-mechanic-girl-with-helmet-holding-drill_1057-46079-removebg-preview.png",
   items: [
     { title: "UI/UX Design", text: "Creating intuitive and engaging user experiences through modern design principles and user testing." },
     { title: "Custom Web Development", text: "Building high-performance, responsive websites tailored to your specific business requirements." },
@@ -30,114 +30,127 @@ export default function ProductEngineering() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-2 md:pt-4 pb-20">
-        <div className="fd-container">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="grid gap-12 lg:grid-cols-2 lg:items-center"
-          >
-            <div>
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-6">
-                <Cpu className="h-7 w-7" />
+      <main>
+        <section className="relative overflow-hidden" aria-label="Hero">
+          <div className="relative h-64 sm:h-80 md:h-96">
+            <img src={productHeroImage} alt={SERVICE.title} className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/40" />
+            <div className="absolute inset-0 flex items-center">
+              <div className="fd-container px-4 md:px-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="max-w-2xl"
+                >
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white mb-4">
+                    <Cpu className="h-3 w-3" /> Product Engineering
+                  </span>
+                  <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl tracking-tight mb-6 leading-[1.1] text-white">{SERVICE.title}</h1>
+                  <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">{SERVICE.description}</p>
+                </motion.div>
               </div>
-              <h1 className="font-serif text-5xl md:text-7xl tracking-tighter mb-6">{SERVICE.title}</h1>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-8">{SERVICE.description}</p>
-              <Button size="lg" className="rounded-full px-8">Our Process</Button>
             </div>
-            <div className="relative aspect-square overflow-hidden rounded-[3rem] bg-muted/20 border border-border/50 p-8">
-              <img src={SERVICE.image} alt={SERVICE.title} className="h-full w-full object-contain" />
-            </div>
-          </motion.div>
-
-          <div className="mt-24 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {SERVICE.items.map((item, i) => (
-              <Card key={i} className="fd-glass fd-noise p-8 rounded-[2rem]">
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground">{item.text}</p>
-              </Card>
-            ))}
           </div>
+        </section>
 
-          {/* Why Product Engineering Section */}
-          <div className="mt-20 py-20 bg-card/30 -mx-4 px-4 md:-mx-8 md:px-8 lg:-mx-12 lg:px-12">
-            <div className="grid gap-16 lg:grid-cols-2 items-center">
+        <section className="py-12 md:py-20 bg-slate-50">
+          <div className="fd-container px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary mb-4">Our Services</span>
+              <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight mb-4 text-slate-900">What we offer</h2>
+            </div>
+            <div className="grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {SERVICE.items.map((item, i) => (
+                <Card key={i} className="bg-white border border-slate-200 hover:border-primary/40 hover:shadow-lg p-5 md:p-8 rounded-xl transition-all">
+                  <h3 className="text-base md:text-xl font-bold mb-3 text-slate-900">{item.title}</h3>
+                  <p className="text-sm md:text-base text-slate-600">{item.text}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-12 md:py-20 bg-background">
+          <div className="fd-container px-4 md:px-6">
+            <div className="grid gap-8 md:gap-12 lg:gap-16 lg:grid-cols-2 items-center">
               <div>
-                <h2 className="font-serif text-3xl md:text-5xl tracking-tight mb-8">Why Product Engineering with {COMPANY.name}?</h2>
-                <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
+                <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary mb-4">Why Choose Us</span>
+                <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight mb-6 md:mb-8 text-slate-900">Why Product Engineering with {COMPANY.name}?</h2>
+                <p className="text-sm sm:text-base md:text-lg text-slate-600 mb-6 md:mb-10 leading-relaxed">
                   We don't just build products; we engineer experiences that delight users and drive business growth. Our approach combines design thinking with technical excellence to deliver market-ready solutions.
                 </p>
-                <ul className="space-y-4">
+                <ul className="space-y-3 md:space-y-4">
                   {SERVICE.benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-center gap-3 text-lg">
-                      <ShieldCheck className="h-6 w-6 text-primary flex-shrink-0" />
+                    <li key={i} className="flex items-center gap-3 text-sm sm:text-base md:text-lg text-slate-600">
+                      <div className="h-7 w-7 md:h-8 md:w-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center flex-shrink-0">
+                        <ShieldCheck className="h-4 w-4 text-primary" />
+                      </div>
                       <span>{benefit}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               <div className="relative">
-                <div className="absolute inset-0 bg-primary/10 blur-3xl opacity-50" />
-                <Card className="relative overflow-hidden rounded-[3rem] border-border/40 fd-glass fd-noise p-8">
-                  <h3 className="font-serif text-xl mb-6 text-center">Product Development Impact</h3>
+                <Card className="relative overflow-hidden rounded-xl md:rounded-2xl bg-white border border-slate-200 p-5 md:p-8">
+                  <h3 className="font-bold text-base md:text-xl mb-4 md:mb-6 text-center text-slate-900">Product Development Impact</h3>
                   <div className="space-y-6">
-                    <div className="p-4 rounded-2xl bg-background/50 border border-border/40">
+                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
                       <div className="flex gap-4 items-center mb-2">
                         <div className="h-10 w-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-500">
                           <Rocket className="h-5 w-5" />
                         </div>
                         <div className="flex-1">
                           <div className="flex justify-between text-sm mb-1">
-                            <span className="font-medium">Time-to-Market Reduction</span>
+                            <span className="font-medium text-slate-600">Time-to-Market Reduction</span>
                             <span className="text-blue-500 font-bold">65%</span>
                           </div>
-                          <div className="h-2 bg-muted rounded-full overflow-hidden">
+                          <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
                             <div className="h-full bg-blue-500 w-[65%]" />
                           </div>
                         </div>
                       </div>
-                      <p className="text-xs text-muted-foreground mt-2">Average reduction in product launch timelines through agile development</p>
+                      <p className="text-xs text-slate-500 mt-2">Average reduction in product launch timelines through agile development</p>
                     </div>
-                    <div className="p-4 rounded-2xl bg-background/50 border border-border/40">
+                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
                       <div className="flex gap-4 items-center mb-2">
                         <div className="h-10 w-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-500">
                           <Users className="h-5 w-5" />
                         </div>
                         <div className="flex-1">
                           <div className="flex justify-between text-sm mb-1">
-                            <span className="font-medium">User Satisfaction Score</span>
+                            <span className="font-medium text-slate-600">User Satisfaction Score</span>
                             <span className="text-purple-500 font-bold">91%</span>
                           </div>
-                          <div className="h-2 bg-muted rounded-full overflow-hidden">
+                          <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
                             <div className="h-full bg-purple-500 w-[91%]" />
                           </div>
                         </div>
                       </div>
-                      <p className="text-xs text-muted-foreground mt-2">Average user satisfaction rating for products we've delivered</p>
+                      <p className="text-xs text-slate-500 mt-2">Average user satisfaction rating for products we've delivered</p>
                     </div>
-                    <div className="p-4 rounded-2xl bg-background/50 border border-border/40">
+                    <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200">
                       <div className="flex gap-4 items-center mb-2">
                         <div className="h-10 w-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-500">
                           <Zap className="h-5 w-5" />
                         </div>
                         <div className="flex-1">
                           <div className="flex justify-between text-sm mb-1">
-                            <span className="font-medium">Performance Optimization</span>
+                            <span className="font-medium text-slate-600">Performance Optimization</span>
                             <span className="text-emerald-500 font-bold">88%</span>
                           </div>
-                          <div className="h-2 bg-muted rounded-full overflow-hidden">
+                          <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
                             <div className="h-full bg-emerald-500 w-[88%]" />
                           </div>
                         </div>
                       </div>
-                      <p className="text-xs text-muted-foreground mt-2">Average improvement in application performance metrics</p>
+                      <p className="text-xs text-slate-500 mt-2">Average improvement in application performance metrics</p>
                     </div>
                   </div>
                 </Card>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </main>
       <Footer />
     </div>

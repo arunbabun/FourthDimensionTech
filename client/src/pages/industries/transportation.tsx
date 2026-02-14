@@ -3,7 +3,7 @@ import { Truck, BadgeCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Navbar, Footer } from "@/components/layout/Navbar";
-import transportationHeroImage from "@/assets/images/transportation-hero.jpg";
+import transportationHeroImage from "@/assets/images/industry-transportation.jpg";
 
 const INDUSTRY = {
   title: "Transportation & Logistics",
@@ -19,34 +19,45 @@ export default function TransportationIndustry() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-2 md:pt-4 pb-20">
-        <div className="fd-container">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="grid gap-12 lg:grid-cols-2 lg:items-center mb-12"
-          >
-            <div>
-              <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary mb-6">
-                <Truck className="h-7 w-7" />
+      <main>
+        <section className="relative overflow-hidden" aria-label="Hero">
+          <div className="relative h-64 sm:h-80 md:h-96">
+            <img src={transportationHeroImage} alt={INDUSTRY.title} className="absolute inset-0 w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/40" />
+            <div className="absolute inset-0 flex items-center">
+              <div className="fd-container px-4 md:px-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="max-w-2xl"
+                >
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white mb-4">
+                    <Truck className="h-3 w-3" /> Transportation & Logistics
+                  </span>
+                  <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl tracking-tight mb-6 leading-[1.1] text-white">{INDUSTRY.title}</h1>
+                  <p className="text-base sm:text-lg md:text-xl text-white/80 leading-relaxed">{INDUSTRY.description}</p>
+                </motion.div>
               </div>
-              <h1 className="font-serif text-5xl md:text-7xl tracking-tighter mb-6">{INDUSTRY.title}</h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">{INDUSTRY.description}</p>
             </div>
-            <div className="relative aspect-square overflow-hidden rounded-[3rem] bg-muted/20 border border-border/50">
-              <img src={transportationHeroImage} alt={INDUSTRY.title} className="h-full w-full object-cover" />
-            </div>
-          </motion.div>
-
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {INDUSTRY.bullets.map((item, i) => (
-              <Card key={i} className="fd-glass fd-noise p-8 rounded-[2rem] hover:border-primary/30 transition-colors">
-                <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{item.text}</p>
-              </Card>
-            ))}
           </div>
-        </div>
+        </section>
+
+        <section className="py-12 md:py-20 bg-slate-50">
+          <div className="fd-container px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
+              <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary mb-4">Our Expertise</span>
+              <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl tracking-tight mb-4 text-slate-900">What we deliver</h2>
+            </div>
+            <div className="grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {INDUSTRY.bullets.map((item, i) => (
+                <Card key={i} className="bg-white border border-slate-200 hover:border-primary/40 hover:shadow-lg p-5 md:p-8 rounded-xl transition-all">
+                  <h3 className="text-base md:text-xl font-bold mb-3 text-slate-900">{item.title}</h3>
+                  <p className="text-sm md:text-base text-slate-600 leading-relaxed">{item.text}</p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

@@ -77,23 +77,24 @@ export default function ContactPage() {
     return (
       <div className="min-h-screen bg-background">
         <Navbar />
-        <main className="pt-32 pb-24">
+        <main className="py-20 md:py-32">
           <div className="fd-container max-w-2xl text-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="fd-glass fd-noise p-12 rounded-[3rem] border-border/40"
             >
-              <div className="h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-8">
-                <CheckCircle2 className="h-10 w-10 text-primary" />
-              </div>
-              <h1 className="font-serif text-4xl mb-4">Thank you!</h1>
-              <p className="text-muted-foreground text-lg mb-8">
-                Your inquiry has been sent to our team. We'll review your details and reach out to you at {formData.email} soon.
-              </p>
-              <Button onClick={() => setIsSubmitted(false)} variant="outline" className="rounded-full">
-                Send another message
-              </Button>
+              <Card className="p-12 rounded-2xl bg-white border border-slate-200 shadow-lg">
+                <div className="h-20 w-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-8">
+                  <CheckCircle2 className="h-10 w-10 text-primary" />
+                </div>
+                <h1 className="text-3xl font-bold text-slate-900 mb-4">Thank you!</h1>
+                <p className="text-slate-500 text-lg mb-8">
+                  Your inquiry has been sent to our team. We'll review your details and reach out to you at {formData.email} soon.
+                </p>
+                <Button onClick={() => setIsSubmitted(false)} variant="outline" className="rounded-full border-slate-300 text-slate-700 hover:bg-slate-50">
+                  Send another message
+                </Button>
+              </Card>
             </motion.div>
           </div>
         </main>
@@ -105,17 +106,20 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="pt-32 pb-24">
-        <div className="fd-container max-w-4xl">
-          <div className="text-center mb-16">
+      <main className="py-14 md:py-20">
+        <div className="fd-container max-w-4xl px-4 md:px-6">
+          <div className="text-center mb-12">
+            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-primary mb-4">
+              Contact Us
+            </span>
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="font-serif text-5xl md:text-7xl tracking-tighter mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 mb-4"
             >
               Let's Talk
             </motion.h1>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
               Ready to start your digital transformation journey? Tell us a bit about your project and how we can help.
             </p>
           </div>
@@ -125,22 +129,22 @@ export default function ContactPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <Card className="fd-glass fd-noise p-8 md:p-12 border-border/40 overflow-hidden relative">
-              <div className="absolute top-0 right-0 p-8 opacity-5">
-                <Mail className="h-32 w-32" />
+            <Card className="p-6 md:p-10 border border-slate-200 bg-white rounded-2xl shadow-sm overflow-hidden relative">
+              <div className="absolute top-0 right-0 p-8 opacity-[0.03]">
+                <Mail className="h-32 w-32 text-slate-900" />
               </div>
 
-              <form onSubmit={handleSubmit} className="relative z-10 space-y-8">
-                <div className="grid gap-8 md:grid-cols-2">
+              <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
+                <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground ml-1">Full Name</label>
+                    <label className="text-sm font-bold uppercase tracking-widest text-slate-400 ml-1">Full Name</label>
                     <div className="relative">
-                      <User className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                      <User className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                       <Input
                         required
                         name="name"
                         placeholder="John Doe"
-                        className="pl-12 h-14 rounded-2xl bg-background/50 border-border/40 focus:border-primary/50 transition-all"
+                        className="pl-12 h-14 rounded-xl bg-slate-50 border-slate-200 focus:border-primary/50 transition-all text-slate-900 placeholder:text-slate-400"
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
                         data-testid="input-name"
@@ -148,14 +152,14 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground ml-1">Company</label>
+                    <label className="text-sm font-bold uppercase tracking-widest text-slate-400 ml-1">Company</label>
                     <div className="relative">
-                      <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                      <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                       <Input
                         required
                         name="company"
                         placeholder="Your Company"
-                        className="pl-12 h-14 rounded-2xl bg-background/50 border-border/40 focus:border-primary/50 transition-all"
+                        className="pl-12 h-14 rounded-xl bg-slate-50 border-slate-200 focus:border-primary/50 transition-all text-slate-900 placeholder:text-slate-400"
                         value={formData.company}
                         onChange={(e) => setFormData({...formData, company: e.target.value})}
                         data-testid="input-company"
@@ -165,15 +169,15 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground ml-1">Email Address</label>
+                  <label className="text-sm font-bold uppercase tracking-widest text-slate-400 ml-1">Email Address</label>
                   <div className="relative">
-                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+                    <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                     <Input
                       required
                       type="email"
                       name="email"
                       placeholder="john@example.com"
-                      className="pl-12 h-14 rounded-2xl bg-background/50 border-border/40 focus:border-primary/50 transition-all"
+                      className="pl-12 h-14 rounded-xl bg-slate-50 border-slate-200 focus:border-primary/50 transition-all text-slate-900 placeholder:text-slate-400"
                       value={formData.email}
                       onChange={(e) => setFormData({...formData, email: e.target.value})}
                       data-testid="input-email"
@@ -182,14 +186,14 @@ export default function ContactPage() {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-sm font-bold uppercase tracking-widest text-muted-foreground ml-1">How can we help?</label>
+                  <label className="text-sm font-bold uppercase tracking-widest text-slate-400 ml-1">How can we help?</label>
                   <div className="relative">
-                    <MessageSquare className="absolute left-4 top-4 h-5 w-5 text-muted-foreground" />
+                    <MessageSquare className="absolute left-4 top-4 h-5 w-5 text-slate-400" />
                     <Textarea
                       required
                       name="message"
                       placeholder="Tell us about the services you're expecting from us..."
-                      className="pl-12 min-h-[150px] rounded-2xl bg-background/50 border-border/40 focus:border-primary/50 transition-all"
+                      className="pl-12 min-h-[150px] rounded-xl bg-slate-50 border-slate-200 focus:border-primary/50 transition-all text-slate-900 placeholder:text-slate-400"
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
                       data-testid="input-message"
@@ -202,7 +206,7 @@ export default function ContactPage() {
                       type="submit" 
                       size="lg" 
                       disabled={isSubmitting}
-                      className="flex-1 rounded-full h-14 text-lg group"
+                      className="flex-1 rounded-full h-14 text-lg group bg-primary hover:bg-primary/90 text-white"
                       data-testid="button-send"
                     >
                       {isSubmitting ? "Sending..." : "Send Message"}
@@ -213,10 +217,10 @@ export default function ContactPage() {
                     variant="outline" 
                     size="lg" 
                     onClick={handleClear}
-                    className="rounded-full h-14 px-8 text-lg group"
+                    className="rounded-full h-14 px-8 text-lg group border-slate-300 text-slate-700 hover:bg-slate-50"
                     data-testid="button-clear"
                   >
-                    <Trash2 className="mr-2 h-5 w-5 text-muted-foreground group-hover:text-destructive transition-colors" />
+                    <Trash2 className="mr-2 h-5 w-5 text-slate-400 group-hover:text-destructive transition-colors" />
                     Clear
                   </Button>
                 </div>
